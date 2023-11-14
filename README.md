@@ -16,6 +16,7 @@ docker build . or docker-compose build with docker yml file
 
 # docker to create django app mapped to yml volumes
 docker-compose run --rm app sh -c "django-admin startproject app ."
+docker-compose run --rm app sh -c "python manage.py startapp user"
 
 # run services on localhost:8000
 docker-compose up
