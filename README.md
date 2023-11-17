@@ -20,7 +20,7 @@ docker-compose run --rm app sh -c "python manage.py startapp user"
 docker-compose run --rm app sh -c "python manage.py startapp recipe"
 
 
-# run services on localhost:8000
+# run services on localhost:8000 and update any new migrations added
 docker-compose up
 
 # docker for delinting
