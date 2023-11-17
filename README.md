@@ -41,5 +41,5 @@ docker volume ls
 docker-compose docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate"
 docker-compose run --rm app sh -c "python manage.py test"
 
-# docker make migrations
+# docker make migrations to changes in model
 docker-compose run --rm app sh -c "python manage.py makemigrations"
