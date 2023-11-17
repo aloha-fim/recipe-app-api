@@ -11,7 +11,7 @@ Swagger Documentation
 GitHub Actions testing and linting automation
 
 
-# docker commands to build image after requirements.txt
+# docker commands to build or rebuild image after change in requirements.txt
 docker build . or docker-compose build with docker yml file
 
 # docker to create django apps mapped to yml volumes
