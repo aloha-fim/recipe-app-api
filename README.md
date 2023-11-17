@@ -19,6 +19,8 @@ docker-compose run --rm app sh -c "django-admin startproject app ."
 docker-compose run --rm app sh -c "python manage.py startapp user"
 docker-compose run --rm app sh -c "python manage.py startapp recipe"
 
+# docker make migrations to changes in model
+docker-compose run --rm app sh -c "python manage.py makemigrations"
 
 # run services on localhost:8000 and update any new migrations added
 docker-compose up
@@ -41,5 +43,3 @@ docker volume ls
 docker-compose docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate"
 docker-compose run --rm app sh -c "python manage.py test"
 
-# docker make migrations to changes in model
-docker-compose run --rm app sh -c "python manage.py makemigrations"
