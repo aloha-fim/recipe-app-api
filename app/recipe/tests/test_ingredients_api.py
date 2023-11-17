@@ -17,7 +17,7 @@ INGREDIENTS_URL = reverse('recipe:ingredient-list')
 
 
 def detail_url(ingredient_id):
-    """Create and return an inegredient detail URL"""
+    """Create and return an ingredient detail URL"""
     return reverse('recipe:ingredient-detail', args=[ingredient_id])
 
 
@@ -26,21 +26,21 @@ def create_user(email='user@example.com', password='testpass123'):
     return get_user_model().objects.create_user(email=email, password=password)
 
 
-class PublicIngredientApiTests(TestCase):
+class PublicIngredientsApiTests(TestCase):
     """Test unauthenticated API requests"""
 
     def setUp(self):
         self.client = APIClient()
 
     def test_auth_required(self):
-        """Test that authentication is require"""
+        """Test that authentication is required for retrieving ingredients"""
         res = self.client.get(INGREDIENTS_URL)
 
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-class PrivateIngredientsApiTest(TestCase):
-    """Test unauthenticated API requests"""
+class PrivateIngredientsApiTests(TestCase):
+    """Test authenticated API requests"""
 
     def setUp(self):
         self.user = create_user()
@@ -49,8 +49,8 @@ class PrivateIngredientsApiTest(TestCase):
 
     def test_retrieve_ingredients(self):
         """Test retrieving a list of ingredients"""
-        Ingredient.objects.create(user=self.user, name="Kale")
-        Ingredient.objects.create(user=self.user, name="Salt")
+        Ingredient.objects.create(user=self.user, name='Kale')
+        Ingredient.objects.create(user=self.user, name='Salt')
 
         res = self.client.get(INGREDIENTS_URL)
 
@@ -62,8 +62,8 @@ class PrivateIngredientsApiTest(TestCase):
     def test_ingredients_limited_to_user(self):
         """Test list of ingredients is limited to authenticated user"""
         user2 = create_user(email='user2@example.com')
-        Ingredient.objects.create(user=user2, name="Vinegar")
-        ingredient = Ingredient.objects.create(user=self.user, name="Turmeric")
+        Ingredient.objects.create(user=user2, name='Vinegar')
+        ingredient = Ingredient.objects.create(user=self.user, name='Turmeric')
 
         res = self.client.get(INGREDIENTS_URL)
 

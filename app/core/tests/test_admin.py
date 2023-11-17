@@ -1,5 +1,5 @@
-""""
-Tests for the Django admin notifications
+"""
+Tests for the Django admin modifications
 """
 from django.test import TestCase
 from django.contrib.auth import get_user_model
@@ -8,10 +8,10 @@ from django.test import Client
 
 
 class AdminSiteTests(TestCase):
-    """Test for Django admin"""
+    """Tests for Django admin"""
 
     def setUp(self):
-        """Creta user and client"""
+        """Create user and client"""
         self.client = Client()
         self.admin_user = get_user_model().objects.create_superuser(
             email='admin@example.com',
@@ -24,7 +24,7 @@ class AdminSiteTests(TestCase):
             name='Test User'
         )
 
-    def test_users_lisr(self):
+    def test_users_lists(self):
         """Test that users are listed on page"""
         url = reverse('admin:core_user_changelist')
         res = self.client.get(url)
