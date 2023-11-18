@@ -43,3 +43,6 @@ docker volume ls
 docker-compose docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate"
 docker-compose run --rm app sh -c "python manage.py test"
 
+# deploy docker-deploy
+docker-compose -f docker-compose-deploy.yml up
+
