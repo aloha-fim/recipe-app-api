@@ -37,7 +37,7 @@ from recipe import serializers
                 'ingredients',
                 OpenApiTypes.STR,
                 description='Comma separated list of ingredient IDs to filter',
-            )
+            ),
         ]
     )
 )
@@ -101,9 +101,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
         parameters=[
             OpenApiParameter(
                 'assigned_only',
-                OpenApiTypes.INT, enum=[0,1],
+                OpenApiTypes.INT, enum=[0, 1],
                 description='Filter by items assigned to recipes',
-            )
+            ),
         ]
     )
 )
