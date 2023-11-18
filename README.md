@@ -12,7 +12,7 @@ GitHub Actions testing and linting automation
 
 
 # docker commands to build or rebuild image after change in requirements.txt
-docker build . or docker-compose build with docker yml file
+docker build . in current directory or docker-compose build with docker yml file
 
 # docker to create django apps mapped to yml volumes
 docker-compose run --rm app sh -c "django-admin startproject app ."
@@ -46,3 +46,6 @@ docker-compose run --rm app sh -c "python manage.py test"
 # deploy docker-deploy
 docker-compose -f docker-compose-deploy.yml up
 
+# troubleshoot deployment after typo in yml
+docker-compose -f docker-compose-deploy.yml build
+docker-compose -f docker-compose-deploy.yml up
