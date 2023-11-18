@@ -129,7 +129,7 @@ class PrivateIngredientsApiTests(TestCase):
             price=Decimal('7.00'),
             user=self.user,
         )
-        recipe2 = Recipe.object.create(
+        recipe2 = Recipe.objects.create(
             title='Coriander Eggs on Toast',
             time_minutes=20,
             price=Decimal('4.00'),
