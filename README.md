@@ -49,3 +49,8 @@ docker-compose -f docker-compose-deploy.yml up
 # troubleshoot deployment after typo in yml
 docker-compose -f docker-compose-deploy.yml build
 docker-compose -f docker-compose-deploy.yml up
+
+# AWS in EC2
+git pull origin
+docker-compose -f docker-compose-deploy.yml build app
+docker-compose -f docker-compose-deploy.yml up --no-deps -d app
